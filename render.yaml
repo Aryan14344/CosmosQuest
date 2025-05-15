@@ -1,0 +1,20 @@
+services:
+  - type: web # Indicates this is a web service
+    name: cosmoquest-backend # You can change this name
+    env: node # Specifies the environment is Node.js
+    plan: free # Use Render's free instance type
+    # region: oregon # Optional: specify a region, e.g., oregon, frankfurt
+    branch: main # Deploy from the main branch
+    # healthCheckPath: / # Optional: a path Render can ping to see if your app is healthy
+    envVars: # Environment variables
+      - key: NODE_ENV
+        value: production
+      # Add any other environment variables your app might need
+    buildCommand: |
+      apt-get update && \
+      apt-get install -y software-properties-common && \
+      apt-add-repository -y ppa:swi-prolog/stable && \
+      apt-get update && \
+      apt-get install -y swi-prolog && \
+      npm install
+    startCommand: npm start # Uses the "start" script from your package.json
