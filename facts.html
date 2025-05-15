@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CosmoQuest: News & Facts</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      padding: 0;
+    }
+
+    header {
+      background: #1c1c1c;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5em;
+      color: #66fcf1;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #45a29e;
+      padding: 25px;
+      border-radius: 16px;
+      margin-bottom: 30px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .title {
+      font-size: 1.8em;
+      color: #66fcf1;
+      margin-bottom: 10px;
+    }
+
+    .fact {
+      font-size: 1.05em;
+      margin-top: 15px;
+      line-height: 1.6;
+    }
+
+    .card img {
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    @media screen and (max-width: 600px) {
+      header h1 {
+        font-size: 1.8em;
+      }
+
+      .title {
+        font-size: 1.4em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CosmoQuest: News & Facts</h1>
+  </header>
+
+  <section>
+    <div class="card" id="apod">
+      <div class="title">Astronomy Picture of the Day</div>
+      <div class="fact" id="apod-title"></div>
+      <img id="apod-img" src="" alt="Astronomy Picture" />
+      <div class="fact" id="apod-desc"></div>
+    </div>
+
+    <div class="card" id="mars-photo">
+      <div class="title">Mars Rover Fact of the Day</div>
+      <img id="mars-img" src="" alt="Mars Rover" />
+      <div class="fact" id="mars-date"></div>
+    </div>
+  </section>
+
+  <script>
+    const NASA_API_KEY = "XW3N3lvd7P12cuywSrW2SUnBtRTWXL2rFate3d0U"; // Replace with your own NASA API key
+
+    // Load APOD
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`)
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('apod-title').textContent = data.title;
+        document.getElementById('apod-img').src = data.url;
+        document.getElementById('apod-desc').textContent = data.explanation;
+      });
+
+    // Load Mars Rover Photo
+    fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${NASA_API_KEY}`)
+      .then(res => res.json())
+      .then(data => {
+        const photo = data.photos[0];
+        if (photo) {
+          document.getElementById('mars-img').src = photo.img_src;
+          document.getElementById('mars-date').textContent = `Taken by ${photo.rover.name} on ${photo.earth_date}`;
+        }
+      });
+  </script>
+</body>
+</html>

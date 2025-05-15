@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CosmoQuest</title>
+  <link rel="stylesheet" href="style copy.css">
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <div class="logo">
+        <img src="image2.png" alt="Planet Icon" class="planet-icon">
+        <h1>CosmoQuest</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#facts">Facts</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="quiz.html" class="cta-btn">Take the Quiz</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container">
+        <h2>Explore the Universe with CosmoQuest</h2>
+        <p>Discover mind-blowing space facts and test your knowledge!</p>
+        <div class="hero-ctas">
+          <a href ="facts.html" class="btn">Discover Facts</a>
+          <a href="quiz.html" class="btn">Take Quiz</a>
+        </div>
+      </div>
+    </section>
+    <section id="wonder-zone" class="wonder-zone">
+      <div class="container">
+        <h2>Vast & Unknown</h2>
+        <p class="tagline">The more we explore, the more we realize how little we truly know.</p>
+        <div class="space-animation">
+          <img src="galaxy.png" alt="Galaxy" class="galaxy-img">
+          <blockquote>
+            "By looking far out into space we are also looking far back into time, back toward the horizon of the universe, back toward the epoch of the Big Bang." <br><span>— Carl Sagan</span>
+          </blockquote>
+        </div>
+        <p class="description">
+          Scientists estimate that over 95% of the universe is made up of dark matter and dark energy—
+          things we can't even see. Every new discovery only opens more questions. Join us as we dive into
+          the infinite unknown.
+        </p>
+      </div>
+    </section>
+    
+    <section id="facts">
+      <div class="container">
+        <h2>Space Facts</h2>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-category="all">All</button>
+          <button class="filter-btn" data-category="planets">Planets</button>
+          <button class="filter-btn" data-category="stars">Stars</button>
+          <button class="filter-btn" data-category="blackholes">Black Holes</button>
+        </div>
+        <div class="facts-grid">
+          <div class="fact-card" data-category="stars">
+            <img src="sun.png" alt="Sun">
+            <h3>The Sun</h3>
+            <p>The Sun is located in the Milky Way galaxy in a spiral arm called the Orion Spur</p>
+          </div>
+          <a href="solarsystem.html" style="text-decoration: none; color: inherit;"><div class="fact-card" data-category="planets">
+            <img src="solarsystem.png" alt="Solar system">
+            <h3>Solar system</h3>
+            <p> All the planets do not actually orbit sun they orbit bary center between them and sun</p>
+          </div>
+          </a>
+          <div class="fact-card" data-category="blackholes">
+            <img src="blackhole.png" alt="Black Hole">
+            <h3>Black Holes</h3>
+            <p>Have gravity so strong that even light cannot escape.</p>
+          </div>
+          <!-- More fact cards can be dynamically added via Prolog -->
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2>About Us</h2>
+        <p>Inspiring curiosity about the cosmos through facts and fun quizzes.</p>
+        <p>Our team is passionate about space exploration and education, bringing you the wonders of the universe in an engaging way.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <p>Have questions or want to learn more? Reach out!</p>
+        <p>
+          Gmail : ad24b1010@gmail.com<br>
+          Phone no : +91 8934017395<br>          
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="https://www.instagram.com/peter_saran_03/?utm_source=qr&r=nametag">Insta handle</a>
+        <a href="quiz.html">Quiz Site</a>
+      </div>
+      <p>© 2025 CosmoQuest. All rights reserved. Imagery credits: NASA, ESA.</p>
+    </div>
+  </footer>
+</body>
+</html>

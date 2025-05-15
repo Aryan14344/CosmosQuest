@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CosmoQuest</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CosmoQuest</h1>
+
+        <div id="quiz-area">
+            <div id="progress-bar-container">
+                <div id="progress-bar"></div>
+            </div>
+            <p id="question-counter">Question 1 of 10</p>
+            <h2 id="question-text">Question goes here...</h2>
+            <div id="options-container">
+                <!-- Options will be populated by JavaScript -->
+            </div>
+            <p id="feedback-text"></p>
+            <button id="next-question-btn" class="hidden">Next Question</button>
+        </div>
+
+        <div id="results-area" class="hidden">
+            <h2>Quiz Completed!</h2>
+            <p>Your Score: <span id="final-score">0</span>/10</p>
+            <h3>Amazing Space Fact:</h3>
+            <p id="space-fact-text">Loading fact...</p>
+            <button id="restart-btn">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
