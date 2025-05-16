@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nebula Dreams: Cosmic Canvases</title>
+    <link rel="stylesheet" href="stylen.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Favicon (example - replace with your own) -->
+    <link rel="icon" href="nebula.png" type="image/png">
+</head>
+<body>
+    <div class="space-background">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+
+    <header id="hero-nebula">
+        <div class="hero-overlay"></div>
+        <div class="hero-content-nebula">
+            <h1>Nebula Dreams</h1>
+            <p>Where Cosmic Dust Paints the Universe</p>
+        </div>
+        <a href="#introduction" class="scroll-down-nebula" aria-label="Scroll down">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5V19M12 19L7 14M12 19L17 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </header>
+
+    <nav id="main-nav">
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#types-of-nebulae">Types</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#star-birth">Star Birth</a></li>
+            <li><a href="#explore-nebulae">Explore</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="introduction" class="nebula-section parallax-section" data-bg="nebulas.png">
+            <div class="section-content-box">
+                <h2>Whispers of Creation</h2>
+                <p>Nebulae, Latin for "clouds," are ethereal expanses of interstellar gas and dust, scattered throughout galaxies. These cosmic canvases are not mere empty space; they are dynamic regions where stars are born, and the remnants of stellar lives play out their final, beautiful acts.</p>
+            </div>
+        </section>
+
+        <section id="types-of-nebulae" class="nebula-section">
+            <h2>A Spectrum of Celestial Clouds</h2>
+            <div class="nebula-types-container">
+                <div class="nebula-type-card" data-bg-image="emission.png">
+                    <div class="type-card-content">
+                        <h3>Emission Nebulae</h3>
+                        <p>Vast clouds of ionized gas that glow with vibrant colors as they are energized by the radiation from nearby young, hot stars. Often called "H II regions."</p>
+                    </div>
+                </div>
+                <div class="nebula-type-card" data-bg-image="reflection.png">
+                     <div class="type-card-content">
+                        <h3>Reflection Nebulae</h3>
+                        <p>Dusty clouds that shine by reflecting the light of nearby stars. They typically appear blue because blue light is scattered more efficiently by dust particles.</p>
+                    </div>
+                </div>
+                <div class="nebula-type-card" data-bg-image="dark.png">
+                     <div class="type-card-content">
+                        <h3>Dark Nebulae</h3>
+                        <p>So dense with dust that they obscure the light from stars and nebulae behind them, appearing as opaque silhouettes against the brighter cosmos.</p>
+                    </div>
+                </div>
+                <div class="nebula-type-card" data-bg-image="planetary.png">
+                     <div class="type-card-content">
+                        <h3>Planetary Nebulae</h3>
+                        <p>Glowing shells of gas and plasma ejected by dying, Sun-like stars in their final stages. Their often round appearance led to their misnomer.</p>
+                    </div>
+                </div>
+                <div class="nebula-type-card" data-bg-image="supernova_remnant.png">
+                     <div class="type-card-content">
+                        <h3>Supernova Remnants</h3>
+                        <p>The expanding, fragmented structures left behind after a massive star explodes in a supernova, enriching space with heavy elements.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="nebula-section parallax-section" data-bg="nebula_gallery_bg.jpg">
+             <div class="section-content-box">
+                <h2>Visions of the Void</h2>
+                <p>Journey through a curated collection of breathtaking nebula images captured by humanity's most powerful telescopes.</p>
+            </div>
+            <div class="nebula-gallery-grid">
+                <div class="gallery-image-wrapper" data-title="Carina Nebula Detail" data-description="A vibrant star-forming region in the Carina Nebula, teeming with young stars and dramatic dust pillars.">
+                    <img src="carina_nebula.png" alt="Carina Nebula Detail">
+                </div>
+                <div class="gallery-image-wrapper" data-title="Pillars of Creation" data-description="Iconic structures within the Eagle Nebula, where new stars are being born within dense gas and dust.">
+                    <img src="eagle.png" alt="Pillars of Creation - Eagle Nebula">
+                </div>
+                <a href="https://en.wikipedia.org/wiki/Orion_Nebula" style="text-decoration: none; color: inherit;"><div class="gallery-image-wrapper" data-title="Orion Nebula" data-description="One of the brightest and closest star-forming regions to Earth, visible to the naked eye.">
+                    <img src="orion_n.png" alt="Orion Nebula">
+                </div>
+                </a>
+                <a href="https://en.wikipedia.org/wiki/Horsehead_Nebula" style="text-decoration: none; color: inherit;">
+                <div class="gallery-image-wrapper" data-title="Horsehead Nebula" data-description="A famous dark nebula in the constellation Orion, silhouetted against a glowing emission nebula.">
+                    <img src="horsehead.png" alt="Horsehead Nebula">
+                </div>
+                </a>
+                <a href="https://en.wikipedia.org/wiki/Helix_Nebula"style="text-decoration: none; color: inherit;">
+
+                    <div class="gallery-image-wrapper" data-title="Helix Nebula" data-description="Often called the 'Eye of God,' this is a large planetary nebula located in the constellation Aquarius.">
+                        <img src="helix.png" alt="Helix Nebula">
+                    </div>
+                </a>
+                <a href="https://en.wikipedia.org/wiki/Crab_Nebula" style="text-decoration: none; color: inherit;">
+
+                    <div class="gallery-image-wrapper" data-title="Crab Nebula" data-description="A supernova remnant powered by a central pulsar, the result of a star that exploded in 1054 AD.">
+                        <img src="crab.png" alt="Crab Nebula">
+                    </div>
+                </a>
+            </div>
+        </section>
+        <!-- Lightbox Modal for Gallery -->
+        <div id="lightbox-modal" class="lightbox">
+            <span class="close-lightbox">×</span>
+            <img class="lightbox-content" id="lightbox-image">
+            <div id="lightbox-caption">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-description"></p>
+            </div>
+        </div>
+
+
+         <section id="star-birth" class="nebula-section parallax-section" data-bg="starbirth.png">
+            <div class="section-content-box">
+                <h2>Cradles of New Stars</h2>
+                <p>Nebulae are not static; they are dynamic environments. Within their coldest, densest regions, gravity takes hold, pulling gas and dust into collapsing clumps. As these protostars grow, their cores heat up, eventually igniting nuclear fusion and bursting forth as new suns, often illuminating the very nebula that birthed them.</p>
+            </div>
+        </section>
+
+
+        <section id="explore-nebulae" class="nebula-section">
+             <div class="section-content-box">
+                <h2>Continue Your Cosmic Voyage</h2>
+                <p>The universe of nebulas is vast and ever-unfolding. Delve deeper with these resources:</p>
+                <div class="explore-links">
+                    <a href="https://hubblesite.org/images/gallery/nebulas" target="_blank" class="nebula-button">Hubble's Nebula Gallery</a>
+                    <a href="https://webbtelescope.org/images" target="_blank" class="nebula-button">JWST Discoveries</a>
+                    <a href="https://www.nasa.gov/mission_pages/hubble/science/nebulae_gallery.html" target="_blank" class="nebula-button">NASA on Nebulae</a>
+                    <a href="https://esahubble.org/images/archive/category/nebulae/" target="_blank" class="nebula-button">ESA Hubble Nebulae</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© <span id="current-year"></span> Nebula Dreams. Unveiling the Universe, One Cloud at a Time.</p>
+    </footer>
+
+    <script src="script_nebula.js"></script>
+</body>
+</html>

@@ -1,0 +1,484 @@
+/* style.css for Solara: Journey to the Sun */
+:root {
+    --primary-color: #FF6700; /* Vibrant Orange */
+    --secondary-color: #FFA500; /* Lighter Orange / Gold */
+    --accent-color: #FFD700;  /* Bright Yellow / Gold */
+    --text-color: #f0f8ff; /* AliceBlue - soft white */
+    --bg-color: #0c0c1e; /* Very Dark Space Blue */
+    --card-bg: rgba(25, 25, 50, 0.6); /* Dark semi-transparent blue for cards */
+    --font-orbitron: 'Orbitron', sans-serif;
+    --font-roboto: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* For smooth internal links */
+}
+
+body {
+    font-family: var(--font-roboto);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    overflow-x: hidden;
+    position: relative; /* For pseudo-elements and fixed backgrounds */
+}
+
+/* Starry Background Effect */
+.stars-bg, .twinkling-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: -2;
+}
+
+.stars-bg { /* Static stars */
+    background: #000 url('https://www.transparenttextures.com/patterns/stardust.png') repeat top left; /* Replace with a better seamless star texture */
+}
+
+.twinkling-bg { /* Moving/twinkling stars */
+    background: transparent url('https://www.transparenttextures.com/patterns/binding-dark.png') repeat top left; /* Replace with a subtle twinkling texture or gif */
+    animation: move-twink-back 200s linear infinite;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+
+/* Hero Section */
+#hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    /* Dynamic sun visual - replace with a high-quality image or canvas animation */
+    background: radial-gradient(ellipse at center, rgba(255,165,0,0.7) 0%, rgba(255,103,0,0.5) 30%, var(--bg-color) 70%),
+                url('your-sun-texture-image.jpg') center center / cover no-repeat; /* Add a subtle texture */
+    background-blend-mode: screen; /* Experiment with blend modes */
+}
+
+#hero::before { /* Pulsing glow effect */
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60vmax; /* Responsive size */
+    height: 60vmax;
+    background: radial-gradient(ellipse at center, rgba(255,215,0,0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulseSun 8s infinite ease-in-out;
+    z-index: 0;
+}
+
+@keyframes pulseSun {
+    0%, 100% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.7; }
+    50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+}
+
+.hero-content {
+    position: relative; /* To sit above the ::before pseudo-element */
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-family: var(--font-orbitron);
+    font-size: clamp(3rem, 10vw, 6rem); /* Responsive font size */
+    margin-bottom: 0.5rem;
+    color: #fff;
+    text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 30px var(--accent-color), 0 0 40px #fff;
+    animation: textFlare 4s infinite alternate, fadeInDown 1.5s ease-out;
+}
+
+@keyframes textFlare {
+    0% { text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--secondary-color), 0 0 30px var(--accent-color); }
+    100% { text-shadow: 0 0 15px var(--accent-color), 0 0 25px var(--primary-color), 0 0 35px var(--secondary-color), 0 0 5px #fff; }
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 3vw, 1.8rem);
+    color: var(--accent-color);
+    text-shadow: 0 0 5px var(--secondary-color);
+    animation: fadeInUp 1.5s ease-out 0.5s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scroll Down Button */
+.scroll-down-btn {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 50px;
+    border: 2px solid var(--accent-color);
+    border-radius: 25px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 2;
+}
+.scroll-down-btn:hover {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.1);
+}
+.scroll-down-btn span {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    width: 3px;
+    height: 10px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    transform: translateX(-50%);
+    animation: scrollIndicator 2s infinite ease-in-out;
+}
+@keyframes scrollIndicator {
+    0% { transform: translate(-50%, 0); opacity: 1; }
+    50% { transform: translate(-50%, 10px); opacity: 0.3; }
+    100% { transform: translate(-50%, 0); opacity: 1; }
+}
+
+
+/* General Content Section Styling */
+.content-section {
+    padding: 100px 5vw;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative; /* For potential ::before/::after decorations */
+}
+
+.content-section h2 {
+    font-family: var(--font-orbitron);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: var(--primary-color);
+    margin-bottom: 50px;
+    text-shadow: 0 0 8px var(--secondary-color), 0 0 15px var(--primary-color);
+    position: relative;
+    display: inline-block; /* So ::after is positioned correctly */
+}
+.content-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color), var(--primary-color));
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+.content-section > p { /* Direct paragraph children for intro text */
+    font-size: 1.15rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    color: #c0c0d0; /* Slightly lighter than main text for contrast */
+}
+
+/* Anatomy of the Sun Section */
+#anatomy {
+    background: rgba(10,10,26,0.3);
+    border-top: 2px solid var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 120px; /* Extra space for info box */
+}
+.sun-layers {
+    position: relative;
+    width: clamp(250px, 40vw, 400px); /* Responsive size */
+    height: clamp(250px, 40vw, 400px);
+    margin: 60px auto 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Base sun colors */
+    background: radial-gradient(circle, var(--accent-color) 10%, var(--secondary-color) 30%, var(--primary-color) 60%, transparent 80%);
+    box-shadow: 0 0 60px var(--primary-color), inset 0 0 40px rgba(255,255,255,0.2), 0 0 100px var(--secondary-color);
+    transition: transform 0.5s ease-out;
+}
+.sun-layers:hover {
+    transform: scale(1.03);
+}
+
+
+.layer span { /* Layer name text */
+    opacity: 0;
+    transition: opacity 0.3s ease 0.1s;
+    pointer-events: none;
+    background: rgba(0,0,0,0.6);
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+}
+
+.layer:hover span {
+    opacity: 1;
+}
+.layer:hover {
+    transform: scale(1.15); /* More pronounced hover scale */
+    z-index: 10; /* Bring to front */
+    border-color: var(--accent-color);
+    box-shadow: 0 0 25px var(--accent-color), inset 0 0 10px rgba(255,255,255,0.3);
+}
+.layer {
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid rgba(255,255,255,0.1);
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    font-weight: bold;
+    pointer-events: none; /* Make all layers initially ignore mouse events */
+}
+
+.layer span {
+    opacity: 0;
+    transition: opacity 0.3s ease 0.1s;
+    pointer-events: none; /* Span should also ignore mouse events initially */
+    background: rgba(0,0,0,0.6);
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+}
+
+/* When the .sun-layers container is hovered, allow its direct children (.layer) to receive pointer events.
+   This is the key to allow hovering on the specific layer you are on. */
+.sun-layers:hover > .layer {
+    pointer-events: auto; /* Children layers can now be hovered */
+}
+
+/* The individual layer being hovered needs to be explicitly set to auto again,
+   and we can increase its z-index to ensure it's visually on top. */
+.layer:hover {
+    transform: scale(1.15);
+    z-index: 10; /* Bring to front */
+    border-color: var(--accent-color);
+    box-shadow: 0 0 25px var(--accent-color), inset 0 0 10px rgba(255,255,255,0.3);
+    pointer-events: auto !important; /* Crucial: Ensure this specific hovered layer gets events */
+}
+
+.layer:hover span {
+    opacity: 1;
+    pointer-events: auto; /* Allow text selection if needed, or keep as none */
+}
+
+/* Sizes and colors for layers (inner to outer) */
+.core { width: 20%; height: 20%; background-color: #fff; /* Almost white hot */ box-shadow: 0 0 15px #fff;}
+.radiative-zone { width: 40%; height: 40%; background-color: var(--accent-color); }
+.convective-zone { width: 60%; height: 60%; background-color: var(--secondary-color); }
+.photosphere { width: 80%; height: 80%; background-color: var(--primary-color); }
+.chromosphere { width: 90%; height: 90%; background-color: rgba(255, 69, 0, 0.7); } /* Deep orange-red */
+.corona { width: 100%; height: 100%; background-color: rgba(255, 100, 0, 0.3); border: 3px dashed var(--accent-color); }
+
+
+#layer-info-box {
+    margin-top: 50px;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    border: 1px solid var(--secondary-color);
+    min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    color: #ddd;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+#layer-info-box:hover {
+    border-color: var(--accent-color);
+}
+
+/* Facts Section */
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    margin-top: 60px;
+}
+
+.fact-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,165,0,0.2); /* Subtle border */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    text-align: left;
+    overflow: hidden;
+    position: relative; /* For pseudo-elements */
+}
+
+.fact-card::before { /* Glow border on hover */
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    border-radius: 14px; /* Slightly larger than card's border-radius */
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.fact-card:hover {
+    transform: translateY(-12px) scale(1.04);
+    border-color: var(--primary-color); /* Main border becomes prominent */
+    box-shadow: 0 12px 35px rgba(255,103,0,0.3);
+}
+.fact-card:hover::before {
+    opacity: 1; /* Show glow border */
+}
+
+.fact-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+    display: block;
+    text-align: center;
+    text-shadow: 0 0 10px var(--accent-color);
+}
+
+.fact-card h3 {
+    font-family: var(--font-orbitron);
+    font-size: 1.6rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.fact-card p {
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Solar Phenomena (Styling for a potential future section) */
+.phenomena-grid { /* Example if you add this */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+.phenomenon-card {
+    /* Similar styling to fact-card, perhaps with image backgrounds */
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border-radius: 10px;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-shadow: 1px 1px 3px #000;
+    transition: transform 0.3s ease;
+}
+.phenomenon-card:hover {
+    transform: scale(1.05);
+}
+.phenomenon-card h4 {
+    font-family: var(--font-orbitron);
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+
+/* Explore More Section */
+#explore a {
+    display: inline-block;
+    margin: 15px;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+#explore a:hover {
+    background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 15px rgba(255,165,0,0.4);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: #050510; /* Even darker for footer */
+    border-top: 1px solid var(--secondary-color);
+    margin-top: 80px;
+}
+footer p {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .content-section h2::after {
+        width: 60px;
+        height: 3px;
+    }
+    .facts-grid {
+        gap: 25px;
+    }
+    #layer-info-box {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .fact-card {
+        padding: 20px;
+    }
+    .fact-card h3 {
+        font-size: 1.4rem;
+    }
+    .fact-card p {
+        font-size: 0.9rem;
+    }
+    #explore a {
+        padding: 12px 25px;
+        font-size: 1rem;
+        width: 80%;
+        margin: 10px auto;
+    }
+}

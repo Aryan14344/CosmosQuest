@@ -19,18 +19,21 @@ document.addEventListener('DOMContentLoaded', () => {
         { question: "What is Earth's only natural satellite?", options: ["Phobos", "Moon", "Titan", "Europa"], answer: "Moon", difficulty: 1 },
         { question: "Which is the largest planet in our Solar System?", options: ["Saturn", "Jupiter", "Neptune", "Uranus"], answer: "Jupiter", difficulty: 1 },
         { question: "What is the name of our galaxy?", options: ["Andromeda", "Triangulum", "Whirlpool", "Milky Way"], answer: "Milky Way", difficulty: 1 },
+        { question: "What is the Sun primarily composed of?", options: ["Oxygen & Nitrogen", "Rock & Metal", "Hydrogen & Helium", "Liquid & Gas"], answer: "Hydrogen & Helium", difficulty: 1},
 
         // Difficulty 2
         { question: "What force keeps planets in orbit around the Sun?", options: ["Magnetism", "Gravity", "Friction", "Dark Energy"], answer: "Gravity", difficulty: 2 },
         { question: "Which planet is known as the Red Planet?", options: ["Jupiter", "Mars", "Venus", "Saturn"], answer: "Mars", difficulty: 2 },
-        { question: "What is the Sun primarily composed of?", options: ["Oxygen & Nitrogen", "Rock & Metal", "Hydrogen & Helium", "Liquid & Gas"], answer: "Hydrogen & Helium", difficulty: 2 },
-        { question: "How many planets are currently recognized in our Solar System?", options: ["7", "8", "9", "10"], answer: "8", difficulty: 2 },
+        { question: "What is the name of the first human-made object to reach space?", options: ["Vostok 1", "Apollo 11", "Sputnik 1", "Voyager 1"], answer: "Sputnik 1", difficulty: 2 },
+        { question: "What is the hottest planet in our solar system?", options: ["Mercury", "Venus", "Mars", "Jupiter"], answer: "Venus", difficulty: 2 },
+        { question: "How many probe sent by humans reached interstellar space ? ", options: ["1", "2", "0", "6"], answer: "8", difficulty: 2 },
 
         // Difficulty 3
         { question: "What is the boundary of a black hole called, beyond which nothing can escape?", options: ["Singularity", "Accretion Disk", "Event Horizon", "Photon Sphere"], answer: "Event Horizon", difficulty: 3 },
         { question: "What is the name of the predominant theory describing the origin of the universe?", options: ["Steady State", "Big Bang Theory", "String Theory", "Eternal Inflation"], answer: "Big Bang Theory", difficulty: 3 },
         { question: "Which space telescope, launched in 1990, has provided many iconic images of space?", options: ["James Webb", "Kepler", "Hubble", "Spitzer"], answer: "Hubble", difficulty: 3 },
-        { question: "What is the term for a giant ball of gas that undergoes nuclear fusion at its core?", options: ["Planet", "Comet", "Star", "Asteroid"], answer: "Star", difficulty: 3 }
+        { question: "What type of star is our sun ?", options: ["Type O", "Type M", "Type F", "Type G"], answer: "Type G", difficulty: 3 },
+        { question: "Orbit of which planet in Solar system can not be understood through newtons law of gravity", options: ["Uranus", "Mercury", "Earth", "Pluto"], answer: "Mercury", difficulty: 3 }
     ];
 
     let currentQuestionIndex = 0;
@@ -198,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
         spaceFactTextElement.textContent = "Fetching your cosmic insight...";
         try {
             // Assuming your Node.js server for Prolog is running on port 3000
-            const response = await fetch('YOUR_DEPLOYED_BACKEND_URL/get-fact');
+            const response = await fetch('http://localhost:3000/get-fact');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }

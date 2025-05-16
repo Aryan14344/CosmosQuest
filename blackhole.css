@@ -1,0 +1,533 @@
+/* style_blackhole.css */
+:root {
+    --bh-bg: #010005; /* Almost black, deep purple/blue tint */
+    --bh-text: #c0c0d0; /* Light silver/lavender */
+    --bh-text-secondary: #888099; /* Muted lavender */
+    --bh-primary-accent: #4a00e0; /* Bright Purple */
+    --bh-secondary-accent: #8e2de2; /* Lighter Purple / Magenta */
+    --bh-glow: #ff00ff; /* Magenta for intense glows */
+    --bh-card-bg: rgba(10, 5, 20, 0.7);
+    --bh-card-border: rgba(74, 0, 224, 0.3);
+    --font-main-bh: 'Exo 2', sans-serif;
+    --font-title-bh: 'Aldrich', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main-bh);
+    background-color: var(--bh-bg);
+    color: var(--bh-text);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+.cosmic-void-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    background: var(--bh-bg);
+    /* Add subtle animated stars or particles here if not using JS library */
+}
+.cosmic-void-background::before { /* Subtle gradient overlay */
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(ellipse at center, rgba(10, 5, 20, 0) 0%, var(--bh-bg) 70%);
+}
+
+
+/* Hero Section */
+#hero-blackhole {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+}
+#hero-video-bh {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translateX(-50%) translateY(-50%);
+    object-fit: cover; /* Cover the area */
+}
+.hero-overlay-bh {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(1,0,5,0.3) 0%, rgba(1,0,5,0.7) 70%, var(--bh-bg) 95%);
+    z-index: 1;
+}
+.hero-content-bh {
+    position: relative;
+    z-index: 2;
+    animation: fadeInHeroContent 2s ease-out;
+}
+@keyframes fadeInHeroContent {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+.hero-content-bh h1 {
+    font-family: var(--font-title-bh);
+    font-size: clamp(3.5rem, 12vw, 7rem);
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px var(--bh-secondary-accent), 0 0 20px var(--bh-primary-accent), 0 0 35px var(--bh-glow), 0 0 50px #fff;
+}
+.hero-content-bh p {
+    font-size: clamp(1rem, 3vw, 1.7rem);
+    font-weight: 300;
+    color: var(--bh-text);
+    text-shadow: 0 0 5px var(--bh-primary-accent);
+}
+
+.scroll-down-bh {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    z-index: 3;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.scroll-down-bh svg {
+    width: 100%; height: 100%;
+    fill: var(--bh-secondary-accent);
+    animation: pulseArrowBH 2.5s infinite ease-in-out;
+}
+.scroll-down-bh:hover {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.1);
+}
+@keyframes pulseArrowBH {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+}
+
+/* Main Navigation */
+#main-nav-bh {
+    position: sticky;
+    top: 0;
+    background-color: rgba(1, 0, 5, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 12px 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--bh-card-border);
+}
+#main-nav-bh ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#main-nav-bh ul li a {
+    color: var(--bh-text);
+    text-decoration: none;
+    padding: 10px 18px;
+    font-family: var(--font-title-bh);
+    font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+    letter-spacing: 1px;
+    position: relative;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+#main-nav-bh ul li a:hover {
+    color: #fff;
+    text-shadow: 0 0 8px var(--bh-secondary-accent);
+}
+#main-nav-bh ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--bh-primary-accent), var(--bh-glow));
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+#main-nav-bh ul li a:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+
+/* General Section Styling */
+.bh-section {
+    padding: 80px 5vw 100px;
+    position: relative;
+    overflow: hidden; /* Important for pseudo-elements and parallax */
+}
+.parallax-bg {
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; /* Parallax effect */
+}
+.parallax-bg::before { /* Dark overlay for parallax sections */
+    content: '';
+    position: absolute;
+    top:0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(1,0,5,0.75); /* Adjust opacity as needed */
+    z-index: 0;
+}
+.section-content-wrapper {
+    max-width: 950px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 30px;
+}
+.bh-section h2 {
+    font-family: var(--font-title-bh);
+    font-size: clamp(2.2rem, 6vw, 3.5rem);
+    color: var(--bh-secondary-accent);
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px var(--bh-primary-accent);
+    letter-spacing: 1px;
+    position: relative;
+}
+.bh-section h2::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 3px;
+    background: var(--bh-primary-accent);
+    margin: 15px auto 0;
+    border-radius: 2px;
+    box-shadow: 0 0 8px var(--bh-glow);
+}
+.bh-section p {
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    margin-bottom: 25px;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Anatomy of a Black Hole Diagram */
+.blackhole-diagram-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+.blackhole-visual {
+    position: relative;
+    width: clamp(300px, 50vw, 450px);
+    height: clamp(300px, 50vw, 450px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px; /* For 3D effects */
+}
+.singularity-point {
+    width: 10px; height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 15px #fff, 0 0 25px var(--bh-glow);
+    z-index: 10;
+    cursor: pointer;
+}
+.event-horizon-ring, .photon-sphere-ring, .ergosphere-visual {
+    position: absolute;
+    border-radius: 50%;
+    border-style: solid;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.event-horizon-ring {
+    width: 40%; height: 40%;
+    border-width: 3px;
+    border-color: rgba(0,0,0,0.8); /* Dark, almost invisible */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5), inset 0 0 15px rgba(0,0,0,0.7);
+    z-index: 8;
+}
+.event-horizon-ring:hover { border-color: var(--bh-glow); box-shadow: 0 0 20px var(--bh-glow), inset 0 0 10px var(--bh-glow); }
+
+.photon-sphere-ring {
+    width: 60%; height: 60%;
+    border-width: 2px;
+    border-color: rgba(255,255,255,0.2);
+    border-style: dashed;
+    z-index: 7;
+}
+.photon-sphere-ring:hover { border-color: var(--bh-secondary-accent); box-shadow: 0 0 15px var(--bh-secondary-accent); }
+
+.ergosphere-visual { /* More of an oval for rotating black holes */
+    width: 85%; height: 75%; /* Wider than tall */
+    border-width: 1px;
+    border-color: rgba(74, 0, 224, 0.3);
+    border-style: dotted;
+    transform: rotateX(20deg) rotateZ(5deg); /* Slight tilt */
+    z-index: 5;
+}
+.ergosphere-visual:hover { border-color: var(--bh-primary-accent); box-shadow: 0 0 10px var(--bh-primary-accent); }
+
+
+.accretion-disk-visual {
+    position: absolute;
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, 
+        rgba(255,255,255,0.1) 0%, /* Inner bright */
+        rgba(255,223,0,0.4) 35%, /* Yellowish */
+        rgba(255,100,0,0.5) 50%, /* Orange */
+        rgba(74,0,224,0.4) 70%,  /* Purple */
+        transparent 85%
+    );
+    transform: rotateX(75deg) scaleY(0.4); /* Flattened and tilted */
+    animation: rotateDisk 20s linear infinite;
+    opacity: 0.7;
+    z-index: 6;
+    pointer-events: none; /* So it doesn't interfere with ring hovers */
+}
+@keyframes rotateDisk {
+    from { transform: rotateX(75deg) scaleY(0.4) rotateZ(0deg); }
+    to { transform: rotateX(75deg) scaleY(0.4) rotateZ(360deg); }
+}
+
+.relativistic-jet-visual {
+    position: absolute;
+    left: 50%;
+    width: 8px;
+    height: 150%; /* Extends far out */
+    background: linear-gradient(to bottom, rgba(255,255,255,0), var(--bh-glow), rgba(255,255,255,0));
+    border-radius: 4px;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 4;
+    box-shadow: 0 0 10px var(--bh-glow);
+}
+.relativistic-jet-visual.top { transform: translateX(-50%) translateY(-100%); }
+.relativistic-jet-visual.bottom { transform: translateX(-50%) translateY(50%) rotate(180deg); }
+
+.diagram-labels {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 700px;
+    text-align: left;
+    background: var(--bh-card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--bh-card-border);
+}
+.diagram-labels .label-text {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    border-left: 3px solid transparent; /* Placeholder */
+    transition: border-left-color 0.3s ease, color 0.3s ease;
+}
+.diagram-labels .label-text.active {
+    border-left-color: var(--bh-glow);
+    color: #fff;
+}
+
+/* Formation Steps */
+.formation-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+.step-card {
+    background: var(--bh-card-bg);
+    border: 1px solid var(--bh-card-border);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.step-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 15px var(--bh-secondary-accent), 0 8px 25px rgba(0,0,0,0.7);
+}
+.step-card img {
+    width: 100%;
+    max-width: 200px; /* Control placeholder size */
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+.step-card h3 {
+    font-family: var(--font-title-bh);
+    color: var(--bh-secondary-accent);
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+.step-card p {
+    font-size: 0.9rem;
+    color: var(--bh-text-secondary);
+    margin-bottom: 0;
+}
+
+/* Cosmic Effects Grid */
+.effects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+.effect-item {
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    transition: transform 0.4s ease;
+    min-height: 350px; /* Ensure items have some height */
+}
+.effect-item:hover {
+    transform: scale(1.03);
+}
+.effect-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease, filter 0.3s ease;
+}
+.effect-item:hover img {
+    transform: scale(1.1);
+    filter: brightness(0.7);
+}
+.effect-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(1,0,5,0.95) 0%, rgba(1,0,5,0.7) 60%, transparent 100%);
+    padding: 25px 20px 20px;
+    color: #fff;
+    transform: translateY(30%); /* Partially hidden initially */
+    opacity: 0.8;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.effect-item:hover .effect-info {
+    transform: translateY(0);
+    opacity: 1;
+}
+.effect-info h3 {
+    font-family: var(--font-title-bh);
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    color: var(--bh-secondary-accent);
+}
+.effect-info p {
+    font-size: 0.95rem;
+    color: var(--bh-text);
+    margin-bottom: 0;
+}
+
+/* Mysteries List */
+.mystery-list {
+    list-style: none;
+    padding-left: 0;
+    max-width: 600px;
+    margin: 30px auto 0;
+    text-align: left;
+}
+.mystery-list li {
+    padding: 10px 0 10px 30px;
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+    position: relative;
+    border-bottom: 1px dashed var(--bh-card-border);
+}
+.mystery-list li::before {
+    content: '❖'; /* Or any other cosmic symbol */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--bh-secondary-accent);
+    font-size: 1.3em;
+    opacity: 0.7;
+}
+
+/* Explore Buttons */
+.explore-buttons-bh {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.bh-button {
+    display: inline-block;
+    padding: 12px 28px;
+    background: transparent;
+    color: var(--bh-secondary-accent);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    border: 2px solid var(--bh-primary-accent);
+    box-shadow: 0 0 0px var(--bh-primary-accent);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.bh-button:hover {
+    background: var(--bh-primary-accent);
+    color: #fff;
+    box-shadow: 0 0 15px var(--bh-primary-accent), 0 0 25px var(--bh-secondary-accent);
+    transform: translateY(-3px);
+}
+.bh-button::after { /* Pulsing effect */
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 100%; height: 100%;
+    background-color: var(--bh-secondary-accent);
+    border-radius: 30px;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    z-index: -1;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.bh-button:hover::after {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0; /* Fade out as it expands */
+}
+
+
+/* Footer */
+#footer-bh {
+    text-align: center;
+    padding: 35px 20px;
+    border-top: 1px solid var(--bh-card-border);
+    margin-top: 70px;
+    font-size: 0.9rem;
+    color: var(--bh-text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #main-nav-bh ul li a { padding: 10px 10px; }
+    .bh-section h2 { font-size: clamp(1.8rem, 5vw, 2.8rem); }
+    .formation-steps { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .effects-grid { grid-template-columns: 1fr; }
+}

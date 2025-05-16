@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solara: Journey to the Sun</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    // ... (all your existing JavaScript code for the Sun website)
+
+    // --- NEW: Sun Layer Info Display Functionality ---
+    const sunLayers = document.querySelectorAll('.sun-layers .layer');
+    const layerInfoBox = document.getElementById('layer-info-box');
+    const defaultInfoText = "Hover over a layer to learn more."; // Store default text
+
+    if (layerInfoBox) { // Ensure the info box exists
+        layerInfoBox.textContent = defaultInfoText; // Set initial default text
+    }
+
+    sunLayers.forEach(layer => {
+        layer.addEventListener('mouseenter', () => {
+            const info = layer.getAttribute('data-info');
+            if (layerInfoBox && info) {
+                layerInfoBox.textContent = info;
+                layerInfoBox.style.borderColor = 'var(--accent-color)'; // Highlight border
+                layerInfoBox.style.color = 'var(--text-color)'; // Ensure text is visible
+            }
+        });
+
+        layer.addEventListener('mouseleave', () => {
+            if (layerInfoBox) {
+                layerInfoBox.textContent = defaultInfoText; // Revert to default text
+                layerInfoBox.style.borderColor = 'var(--secondary-color)'; // Revert border
+                layerInfoBox.style.color = '#ddd'; // Revert color
+            }
+        });
+    });
+    // --- END OF NEW SUN LAYER INFO CODE ---
+
+});
+</script>
+<body>
+    <div class="stars-bg"></div>
+    <div class="twinkling-bg"></div>
+
+    <header id="hero">
+        <div class="hero-content">
+            <h1>SOLARA</h1>
+            <p>Embark on a Journey to Our Magnificent Star</p>
+        </div>
+        <a href="#intro" class="scroll-down-btn">
+            <span></span>
+        </a>
+    </header>
+
+    <main>
+        <section id="intro" class="content-section">
+            <h2>The Heart of Our Solar System</h2>
+            <p>Behold the Sun, a colossal sphere of incandescent plasma, the life-giving star at the center of our cosmic neighborhood. Its radiant energy fuels planets, paints our skies, and dictates the rhythm of life itself. Journey with us as we explore its fiery secrets.</p>
+        </section>
+
+        <section id="anatomy" class="content-section">
+            <h2>Anatomy of a Star</h2>
+            <div class="sun-layers">
+                <div class="layer core" data-info="The Core: Where nuclear fusion turns hydrogen into helium, releasing immense energy. Temperatures reach 15 million °C!"><span>Core</span></div>
+                <div class="layer radiative-zone" data-info="Radiative Zone: Energy from the core travels outwards as photons, bouncing between particles for potentially thousands of years."><span>Radiative Zone</span></div>
+                <div class="layer convective-zone" data-info="Convective Zone: Hot plasma rises, cools, and sinks in giant convection currents, carrying energy to the surface."><span>Convective Zone</span></div>
+                <div class="layer photosphere" data-info="Photosphere: The visible surface of the Sun, where light is emitted. It's 'only' about 5,500 °C."><span>Photosphere</span></div>
+                <div class="layer chromosphere" data-info="Chromosphere: A reddish, glowing layer above the photosphere, visible during eclipses. Hotter than the photosphere."><span>Chromosphere</span></div>
+                <div class="layer corona" data-info="Corona: The Sun's outermost atmosphere, extending millions of kilometers into space. Mysteriously, it's millions of degrees Celsius!"><span>Corona</span></div>
+            </div>
+            <div id="layer-info-box">Hover over a layer to learn more.</div>
+        </section>
+
+        <section id="facts" class="content-section">
+            <h2>Stellar Wonders: Fascinating Facts</h2>
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <div class="fact-icon">☀️</div>
+                    <h3>Immense Size</h3>
+                    <p>The Sun accounts for about 99.86% of the total mass of the Solar System. You could fit about 1.3 million Earths inside it!</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">🔥</div>
+                    <h3>Blazing Temperatures</h3>
+                    <p>The core temperature is about 15 million °C (27 million °F), while the visible surface (photosphere) is around 5,500 °C (9,940 °F).</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">💡</div>
+                    <h3>Light's Journey</h3>
+                    <p>Light from the Sun takes about 8 minutes and 20 seconds to reach Earth, traveling at nearly 300,000 kilometers per second.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">
