@@ -20,13 +20,15 @@ document.addEventListener('DOMContentLoaded', () => {
         { question: "Which is the largest planet in our Solar System?", options: ["Saturn", "Jupiter", "Neptune", "Uranus"], answer: "Jupiter", difficulty: 1 },
         { question: "What is the name of our galaxy?", options: ["Andromeda", "Triangulum", "Whirlpool", "Milky Way"], answer: "Milky Way", difficulty: 1 },
         { question: "What is the Sun primarily composed of?", options: ["Oxygen & Nitrogen", "Rock & Metal", "Hydrogen & Helium", "Liquid & Gas"], answer: "Hydrogen & Helium", difficulty: 1},
-
+        { question: "What type of nebula is formed after a star undergoes a supernova explosion ?", options: ["Reflection nebula", "Emission nebula", "planetary nebula ", "supernova-remnant"], answer: "Hydrogen & Helium", difficulty: 1},
         // Difficulty 2
         { question: "What force keeps planets in orbit around the Sun?", options: ["Magnetism", "Gravity", "Friction", "Dark Energy"], answer: "Gravity", difficulty: 2 },
         { question: "Which planet is known as the Red Planet?", options: ["Jupiter", "Mars", "Venus", "Saturn"], answer: "Mars", difficulty: 2 },
         { question: "What is the name of the first human-made object to reach space?", options: ["Vostok 1", "Apollo 11", "Sputnik 1", "Voyager 1"], answer: "Sputnik 1", difficulty: 2 },
         { question: "What is the hottest planet in our solar system?", options: ["Mercury", "Venus", "Mars", "Jupiter"], answer: "Venus", difficulty: 2 },
-        { question: "How many probe sent by humans reached interstellar space ? ", options: ["1", "2", "0", "6"], answer: "8", difficulty: 2 },
+        { question: "How many probe sent by humans reached interstellar space ? ", options: ["1", "2", "0", "6"], answer: "2", difficulty: 2 },
+        { question: "What is the cosmic microwave background (CMB)? ? ", options: ["Radiation emitted by Black hole", "Radiation emitted by AGN", "Radiation remain of bigbang", "Any Radiation in Cosmos"], answer: "2", difficulty: 2 },
+        { question: "Which stage in a star’s life cycle occurs when it exhausts its hydrogen fuel and begins to expand? ? ", options: ["Red Giant ", "White Dwarf", "protostar", "Main sequence"], answer: "Red Giant", difficulty: 2 },
 
         // Difficulty 3
         { question: "What is the boundary of a black hole called, beyond which nothing can escape?", options: ["Singularity", "Accretion Disk", "Event Horizon", "Photon Sphere"], answer: "Event Horizon", difficulty: 3 },
