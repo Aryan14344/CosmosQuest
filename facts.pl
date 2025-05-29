@@ -1,6 +1,6 @@
-:- use_module(library(random)). % Required for random_member/2
+:- use_module(library(random)).
 
-% Define your space facts
+
 space_fact("The Sun accounts for 99.86% of the mass in our solar system.").
 space_fact("A day on Venus is longer than its year. Venus rotates very slowly.").
 space_fact("Olympus Mons on Mars is the largest volcano in the solar system, about 2.5 times Mount Everest's height.").

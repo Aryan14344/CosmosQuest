@@ -9,15 +9,13 @@
 </head>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-    // ... (all your existing JavaScript code for the Sun website)
-
-    // --- NEW: Sun Layer Info Display Functionality ---
+   
     const sunLayers = document.querySelectorAll('.sun-layers .layer');
     const layerInfoBox = document.getElementById('layer-info-box');
-    const defaultInfoText = "Hover over a layer to learn more."; // Store default text
+    const defaultInfoText = "Hover over a layer to learn more.";
 
-    if (layerInfoBox) { // Ensure the info box exists
-        layerInfoBox.textContent = defaultInfoText; // Set initial default text
+    if (layerInfoBox) { 
+        layerInfoBox.textContent = defaultInfoText; 
     }
 
     sunLayers.forEach(layer => {
@@ -25,8 +23,8 @@
             const info = layer.getAttribute('data-info');
             if (layerInfoBox && info) {
                 layerInfoBox.textContent = info;
-                layerInfoBox.style.borderColor = 'var(--accent-color)'; // Highlight border
-                layerInfoBox.style.color = 'var(--text-color)'; // Ensure text is visible
+                layerInfoBox.style.borderColor = 'var(--accent-color)'; 
+                layerInfoBox.style.color = 'var(--text-color)'; 
             }
         });
 
@@ -38,7 +36,7 @@
             }
         });
     });
-    // --- END OF NEW SUN LAYER INFO CODE ---
+    
 
 });
 </script>
@@ -93,5 +91,4 @@
                     <h3>Light's Journey</h3>
                     <p>Light from the Sun takes about 8 minutes and 20 seconds to reach Earth, traveling at nearly 300,000 kilometers per second.</p>
                 </div>
-                <div class="fact-card">
-                    <div class="fact-icon">
+               

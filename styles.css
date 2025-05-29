@@ -68,7 +68,7 @@ body {
     overflow: hidden;
     /* Dynamic sun visual - replace with a high-quality image or canvas animation */
     background: radial-gradient(ellipse at center, rgba(255,165,0,0.7) 0%, rgba(255,103,0,0.5) 30%, var(--bg-color) 70%),
-                url('your-sun-texture-image.jpg') center center / cover no-repeat; /* Add a subtle texture */
+                url('sun_pic.png') center center / cover no-repeat; /* Add a subtle texture */
     background-blend-mode: screen; /* Experiment with blend modes */
 }
 
@@ -296,12 +296,12 @@ body {
 }
 
 /* Sizes and colors for layers (inner to outer) */
-.core { width: 20%; height: 20%; background-color: #fff; /* Almost white hot */ box-shadow: 0 0 15px #fff;}
-.radiative-zone { width: 40%; height: 40%; background-color: var(--accent-color); }
-.convective-zone { width: 60%; height: 60%; background-color: var(--secondary-color); }
-.photosphere { width: 80%; height: 80%; background-color: var(--primary-color); }
-.chromosphere { width: 90%; height: 90%; background-color: rgba(255, 69, 0, 0.7); } /* Deep orange-red */
-.corona { width: 100%; height: 100%; background-color: rgba(255, 100, 0, 0.3); border: 3px dashed var(--accent-color); }
+.core { width: 20%; height: 100%; background-color: #fff; /* Almost white hot */ box-shadow: 0 0 15px #fff;}
+.radiative-zone { width: 40%; height: 90%; background-color: var(--accent-color); }
+.convective-zone { width: 60%; height: 80%; background-color: var(--secondary-color); }
+.photosphere { width: 80%; height: 60%; background-color: var(--primary-color); }
+.chromosphere { width: 90%; height: 40%; background-color: rgba(255, 69, 0, 0.7); } /* Deep orange-red */
+.corona { width: 100%; height: 20%; background-color: rgba(255, 100, 0, 0.3); border: 3px dashed var(--accent-color); }
 
 
 #layer-info-box {
